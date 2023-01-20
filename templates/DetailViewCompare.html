@@ -1,0 +1,705 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+
+         <script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState(null,null,window.location.href );    
+    }
+</script> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta http-equiv="" content="5" >
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Arakkal Palace</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+        
+        <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+        
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/templatemo-leadership-event.css' %}" rel="stylesheet">
+
+
+
+      
+
+
+
+<style type="text/css">
+
+
+       a{
+           text-decoration: none;
+       }
+       ul{
+           list-style: none;
+       }
+    
+    .table{
+                width:100%;
+                border-collapse:collapse;
+    }
+    .table td,.table th{
+                        padding:12px 15px;
+                        border:1px solid #ddd;
+                        text-align:center;
+                        font-size:16px;
+                        
+    }
+    .table th{
+           background-color:rgb(3, 46, 33);
+           color:#ffffff;
+    }
+    
+    .table tbody tr:nth-child(even){
+        background-color:#ffffff;
+        }
+    
+.fnts{
+
+font-family:Google Noto Fonts;
+}
+
+   
+    
+    @media(max-width:1024px){
+      .table thead th {
+          display: none;
+   
+    }
+
+    .special{
+
+        width:300px;
+        height: 200px;
+
+    }
+    .photobanner {
+  position:absolute; 
+  top:0px; 
+  left:0px; 
+  overflow:hidden; 
+  white-space: nowrap;
+  /* animation: bannermove 10s linear infinite; */
+ 
+    }
+
+
+    .nav-toggler{
+        display: flex;
+    }
+    .header .nav{
+        position: absolute;
+        left: 0;
+        top:100%;
+        width:100%;
+        background-color:darkred;
+        border-top: 1px solid rgba(223, 16, 16, 0.2);
+        opacity: 1;
+        visibility: hidden;
+    
+    }
+    .header .nav ul li{
+        display: block;
+        margin:0;
+    
+    }
+    .header #nav-check:checked ~ .nav{
+        opacity:1 ;
+        visibility: visible;
+    
+    }
+    .header #nav-check:focus ~ .nav-toggler
+    {
+        box-shadow: 0 0 15px #000000;
+    
+    }
+    
+    .header #nav-check:checked ~ .nav.toggler span{
+        background-color: transparent;
+    
+    }
+    .header #nav-check:checked ~ .nav-toggler span::before{
+       top: 0;
+       transform: rotate(45deg);
+    }
+    .header #nav-check:checked ~ .nav-toggler span::after{
+        top: 0;
+        transform: rotate(-45deg);
+    }
+    .table, .table tbody, .table tr, .table td{
+        display: block;
+        width: 100%;
+    
+    }
+    .table tr{
+        margin-bottom: 15px;
+    }
+    .table td{
+        text-align: right;
+        padding-left: 50%;
+        text-align: right;
+        position:relative ;
+        height: 50px;
+    
+    
+    }
+   
+    .table td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left:15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    
+    }
+    .session{
+        height:40px;
+    }
+    
+    
+    }
+    .fnts{
+
+        font-family:Google Noto Fonts ;
+    }
+
+    .slideshow {
+  height:320px;
+  /*max-width: 800px;*/ /*The width of the page cannot be a problem*/
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.slideshow > div {
+  height:320px;
+  width: 2000px; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+.move > img {
+  height: 150px;
+}
+
+.slideshow .move {
+animation: moveSlideshow 10s linear infinite ;
+}
+
+.slideshow .move:hover {
+-webkit-animation-play-state: paused;
+-moz-animation-play-state: paused;
+-o-animation-play-state: paused;
+animation-play-state: paused;
+}
+
+@keyframes moveSlideshow {
+  0% {
+transform: translateX(0%); 
+  }
+  100% { 
+transform: translateX(-100%);  /*The width of the page needs to be taken into consideration*/
+  }
+}
+    
+    
+        </style>
+
+
+
+
+
+
+<!-- <script type = "text/JavaScript">
+     {
+    
+       function AutoRefresh( t ) {
+          setTimeout("location.reload(true);", t);
+       }
+
+}
+    
+ </script>  -->
+
+
+ 
+</head>
+
+     
+      <!-- <script type = "text/JavaScript">
+    {
+      function AutoRefresh( t ) {
+         setTimeout("location.reload(true);", t);
+      }
+}
+</script>        -->
+
+
+<!-- onload = "JavaScript:AutoRefresh(10000);"-->
+
+
+
+
+
+  
+
+<body>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+    {% for msg in messages %}
+      
+    <script> 
+     swal.fire('{{ msg }}',"Good job!", "success");
+
+ </script> 
+
+
+{% endfor %}
+
+        <main class="fnts">
+
+ 
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="" class="navbar-brand mx-auto mx-lg-0">
+                  
+                    <span class="brand-text">Arakkal Palace</span>
+                </a>
+
+
+
+
+                <div class="collapse navbar-collapse" id="navbarNav" >
+                    <ul class="navbar-nav ms-auto" >
+                        <li class="nav-item">
+                            <a style="padding:12px; color: white;"  href="#">Gallery</a>
+                        </li>
+
+                        <!-- <li class="nav-item">
+                            <a style="padding:12px;color: white;"  href="{% url 'IposApp:Display' %}">WaitingList</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:FinalReports' %}">Report</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:Tables' %}">Tables</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:TableView' %}">TableMenu</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:LogOut' %}">LogOut</a>
+                        </li> -->
+
+                    </ul>
+                <div>
+                        
+            </div>
+        </nav>
+
+        <main class="fnts">
+
+            
+
+
+            <section class="highlight">
+                <div class="container">
+               
+                    <div>
+                    </div>
+                </div>
+            </section>
+            <div class="container-fluid" style="margin-top:25px;">
+                    <form  action="{% url 'IposApp:Feedback' %}" method="post" enctype="multipart/form-data" style="background-color:white ;">
+                        {% csrf_token %}
+                     
+                      <div class="row" >
+                          <div class="col-md-8">
+                              <label><h6>TicketNO : </h6></label><span style="font-weight: bold;font-size: x-large;"><h7>{{csr.TicketNo}}</h7></span>
+                          </div>
+          
+                          <div class="col-md-4">
+          
+    
+                              <label><h6>KOT-Date :</h6></label><span style="font-weight: bold;font-size: x-large;"><h7>{{csr.BillDate}}</h7></span>
+                              
+                          </div>
+          
+          
+                      </div>
+          
+          
+                      <br>
+                      <br>
+
+                      
+                    
+                       <div class="row">
+                        <div class="col-md-2">
+                  <div class="card"style=" background-color:rgb(10, 33, 16);color:white"
+                              <center><h3   style="margin-top:30px;margin-left: 40px;color: white;" ><span name="Table">{{num}}</span></h3></center>
+                        </div>
+                        <br>      
+                              </div>
+                             
+                            
+                    <div class="col-md-2">
+                        <a href="{% url 'IposApp:ImageGallery'  %}">
+                        <div  class="card">
+
+                           <h4 style="color: rgb(10, 10, 10);margin-top:30px;margin-left:20px;">SpecialMenu</h4>
+
+                        </div>
+                    </a>
+                    <br>
+                        
+
+                    </div>
+                   
+                    <div class="col-md-2" id="test">
+                   
+                    <input  class="btn btn-secondary btn-lg" type="submit" value="Feedback" style="font-weight:bold;font-size: x-large;background-color: darkolivegreen;height:80px;width:100%; ">
+
+
+                    
+
+                    </div>
+      
+                          </div>
+<style>
+    #bn:hover {
+  background-color: #f7bb4b; /* Green */
+  color: white;
+  
+    }
+  #crd:hover {
+  background-color: #f18e93; /* Green */
+  color: white;
+}
+
+</style>
+
+<style>
+    #bn {
+      color: rgb(5, 4, 4);
+      box-shadow: -3px 3px rgb(13, 56, 38), -2px 2px rgb(51, 45, 104), -1px 1px rgb(37, 51, 175);
+      border: 1px solid rgb(4, 41, 24);
+      background-color: bisque;
+      width:100%;
+      height: 50%;
+      font-weight: bold;
+      font-size: x-large;
+  }
+  </style>
+                          
+              
+                    
+                          
+                          <br>
+                       
+                       <div id="appendHere">
+                     
+                          <table   class="table table-hover"  >
+                              <thead>
+                                 
+                                 <!-- <th>Dish Name</th>
+                                 <th>Quantity</th>
+                                 <th>Rate</th>
+                                 <th>VAT Amount</th>
+                                 <th>Total  Amount</th> -->
+                                 <!-- <th>GrandTotal</th> -->
+                                
+                                
+                 
+                            </thead>
+                                <tbody>
+                               {% for i in rows %}
+                               
+                 
+                               <tr>
+                                   <td style="text-align:left;"  data-label="DishName">{{i.DishName}}</td>
+                                   <td style="text-align:right;"   data-label="Quantity">{{i.Quantity}}</td>
+                                   <td style="text-align:right;"   data-label="Amount">{{i.Rate}}</td>
+                                   <td style="text-align:right;"   data-label="VATAmount">{{i.VATAmount}}</td>
+                                   <td style="text-align:right;"   data-label="TotalAmount">{{i.TotalAmount}}</td>
+                                   <!-- <td data-label="GrandTotal">{{i.GrandTotal}}</td> -->
+                                   
+                               </tr>
+{% endfor %}
+                
+                 
+           
+                 <tr style="font-weight:bold;background-color: lightgray;">
+                  <td style="color:rgb(175, 3, 3);">GrandTotal</td>
+                  <td  colspan="2" data-label="Quantity">{{result.Quantity}}</td>
+                  <!-- <td></td> -->
+                  <td style="text-align:right ;"  data-label="VATAmount">{{result.VATAmount}}</td>
+                  <td style="text-align:right ;"  data-label="GrandTotal">{{result.GrandTotal}}</td>
+                 </tr>
+       
+                               </tbody>
+                           </table>
+                       
+                        </div>
+
+                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                        
+                        <script>
+                            $(document).ready(function () {
+                              var interval = 10000;   
+                              var refresh = function() {
+                                  $.ajax({
+                                      url: "{% url 'IposApp:check' %}",
+                                      cache: false,
+                                      success: function(html) {
+                                          $('#appendHere').html(html);
+                                          setTimeout(function() {
+                                              refresh();
+                                          }, interval);
+                                      }
+                                  });
+                              };
+                              refresh();
+                          });
+                          </script> 
+                        
+                     
+                           <!-- <a href="{% url 'IposApp:check' %}">link</a> -->
+                         
+                           
+              <hr>
+                           
+                           <center><h4 style="color:rgb(13, 88, 150) ;">Special Menu</h4></center>
+
+            
+
+                           
+
+
+
+                          <div id="container">
+                            <div class="photobanner">
+                                {% for i in gallery %}
+
+                                
+                                    
+                                <a href="{% url 'IposApp:SpecialMenu' i.Id  %}?#display "> 
+                                  
+                              
+                      
+                          <img class="special" src="{{i.img}}"> 
+                      
+               
+                       </a>
+                      {% endfor %}
+                            </div>
+                          </div>
+
+                        
+                         
+                        <style>
+                            #container {
+  height:350px; 
+  position:relative; 
+  overflow:hidden;
+}
+
+.photobanner {
+  position:absolute; 
+  top:0px; 
+  left:0px; 
+  overflow:hidden; 
+  white-space: nowrap;
+  animation: bannermove 20s linear infinite;
+  width:12100px;
+
+
+
+
+}
+
+
+
+.photobanner img {    
+  margin: 0 0.5em 
+ 
+
+}
+
+.photobanner:hover{
+
+-webkit-animation-play-state: paused;
+-moz-animation-play-state: paused;
+-o-animation-play-state: paused;
+animation-play-state: paused;
+
+
+}
+
+@keyframes bannermove {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(-50%, 0);
+  }
+}
+                        </style>
+
+
+
+
+
+                    
+
+                          <style>
+                             .slideshow {
+  height:320px;
+  /*max-width: 800px;*/ /*The width of the page cannot be a problem*/
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.slideshow > div {
+  height:320px;
+  width: 100%; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+.move > img {
+  height: 100%;
+}
+
+.slideshow .move {
+animation: moveSlideshow 10s linear infinite ;
+}
+
+.slideshow .move:hover {
+-webkit-animation-play-state: paused;
+-moz-animation-play-state: paused;
+-o-animation-play-state: paused;
+animation-play-state: paused;
+}
+
+@keyframes moveSlideshow {
+  0% {
+transform: translateX(0%); 
+  }
+  100% { 
+transform: translateX(-100%);  /*The width of the page needs to be taken into consideration*/
+  }
+}
+                          </style>
+<!-- <script>
+                          
+function refresh() {
+    $.ajax({
+        url: "{% url 'IposApp:DetailView' %}",
+        success: function(data) {
+            $('#test').replaceWith($('#test',data)); 
+        }
+    });
+}
+var seconds = 1; 
+setInterval(refresh(),seconds * 1000);
+     -->
+</script>
+</form>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+
+                    <div class="col-lg-12 col-12 border-bottom pb-5 mb-5">
+                        <div class="d-flex">
+                            <a href="index.html" class="navbar-brand">
+                                <img src="{% static 'images/Arakkal_logo_png.jpg' %}" height="50px;">
+                                <span class="brand-text">Arrakal  <br> Palace</span>
+                            </a>
+
+                            <ul class="social-icon ms-auto">
+                                <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                                <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                                <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+
+                                <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 col-12">
+                        <ul class="footer-menu d-flex flex-wrap">
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Our Story</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Code of Conduct</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacy and Terms</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                        </ul>
+                    </div>
+
+                        
+                    <div class="col-lg-5 col-12 ms-lg-auto">
+                        <div class="copyright-text-wrap d-flex align-items-center">
+                            <p class="copyright-text ms-lg-auto me-4 mb-0">Copyright © 2022 Arakkal Palace. 
+                            
+                            <br>All Rights Reserved. 
+          
+          				
+
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+
+    </body>
+</html>

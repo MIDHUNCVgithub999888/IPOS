@@ -1,0 +1,586 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title</title>
+     <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+
+</head>
+
+
+<!-- CSS FILES -->
+<link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+
+<link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+
+<link href="{% static 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap' %}" rel="stylesheet">
+
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/templatemo-leadership-event.css' %}" rel="stylesheet">
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+           
+            <span class="brand-text"><h5 style="color:#da9100;font-family:Google Noto Fonts;">Arakkal Palace<br>Restaurant</h5></span>
+        </a>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav" >
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a style="padding:12px; font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Home' %}">Home</a>
+                </li>
+<hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Display' %}">WaitingList</a>
+                </li>
+<hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:FinalReports' %}">Report</a>
+                </li>
+                <hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Tables' %}">Tables</a>
+                </li>
+                <hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;" href="{% url 'IposApp:CustomerPromotion' %}">CustomerPromotion</a>
+                </li>
+
+                <hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:TableView' %}">TableMenu</a>
+                </li>
+                <hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:LogOut' %}">LogOut</a>
+                </li>
+                <hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:ShowTable' %}">Kitchen</a>
+                </li>
+                <hr style="background-color: gainsboro;">
+            </ul>
+        <div>
+                
+    </div>
+</nav>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+
+    {% for msg in messages %}
+      
+        <script> 
+         swal.fire('{{ msg }}',"Good job!", "success");
+
+     </script> 
+
+
+
+   
+{% endfor %}
+
+
+
+<body>
+     <form action="{% url 'IposApp:SpecialInsert' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="container" style="margin-top:10px;">
+
+         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Create+</button>
+
+         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#TableModel" data-bs-whatever="@mdo">Update+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Special Dish</h5>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+       
+          <div class="mb-3">
+               <label>DishId</label>
+               <input id="DishId"  onchange="setMonth()"   type="text" name="DId" class="form-control" >
+              
+                <br>
+               <label>SpecialDish</label>
+            <select id="search" data-toggle="dropdown" class="form-control"   onchange="setMonth()"   name="tablevalue" style="font-weight:bold;">
+               <option value="">Select Dish</option>
+
+               {% for i in query %}
+               
+                     
+                     <option  style="font-family:Arial, Helvetica, sans-serif;" value="{{i.DishID}}">{{i.DishName}}</option>
+
+               {% endfor %}
+               </select>
+               <br>
+               <label>Rate</label>
+               <input type="text" id="Rate" name="Drate" class="form-control">
+               <br>
+               <label>Description</label>
+               <textarea class="form-control" name="DIshDes"></textarea>
+               <br>
+               <label>Your Image :
+                   
+               
+                 
+                    <center style="margin-left:100px;">
+                        <div id="img">
+                        
+                    </div> 
+                </center>
+
+              <br>
+              <input hidden type="text" id="sp"  name="itemimage">   
+                 
+                     
+                    
+               
+                    
+                    
+                    
+               </label>
+               
+          </div>
+
+       
+        
+      
+      </div>
+      <div class="modal-footer" style="height:100%;">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <a class="btn btn-success" href="{% url  'IposApp:SpecialInsert' %}">Save</a> -->
+        <input type="submit" value="Save"id="btnsav" class="btn btn-success">
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+    
+
+<script>
+     var exampleModal = document.getElementById('exampleModal')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var button = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  var recipient = button.getAttribute('data-bs-whatever')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  modalTitle.textContent = 'Special Dish ' 
+//   modalBodyInput.value = recipient
+})
+</script>
+
+
+
+
+
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+             <script>
+               
+               
+             function setMonth()
+             {
+               var month = $('#search').val();
+
+               var sv=$("#btnsav").val()
+               var Id=$('#search').val()
+
+              
+                alert(Id)
+             
+              
+               
+           
+               
+         
+                 
+                 $.ajax({
+
+                     url: "{% url 'IposApp:CreateSpecial'   %}",
+                     type: 'POST',
+                     dataType:'json',
+                     headers: { "X-CSRFToken": '{{csrf_token}}' },
+                     data: {
+                     'month': month,
+                     },
+                     success: function (response) {
+
+                    $('#DishId').val(response[0]);   
+                     $('#Rate').val(response[4]);
+                     $('#Name').val(response[2]);
+                     $('#sp').val(response[10]);
+                    $('#img').html('<img class="images" style="height:120px;"  src="'+response[10]+  '"/>')
+                     
+                   
+                     
+
+
+
+
+
+
+                   
+                    if(response[0]==Id)
+                     {
+                        
+                        $('#btnsav').hide();
+
+                        
+                        
+              
+                        
+
+                     }
+                     else
+                     {
+
+                     
+                   
+                      
+                      $("#btnsav").show();
+                     }
+                     
+                     
+         
+                     
+                     },
+                     error: function(){
+                        
+                     }
+                 });
+             
+          
+
+
+
+              
+                 $.ajax({
+
+                     url: "{% url 'IposApp:SpecialDish'   %}",
+                     type: 'POST',
+                     dataType:'json',
+                     headers: { "X-CSRFToken": '{{csrf_token}}' },
+                     data: {
+                     'month': month,
+                     },
+                     success: function (response) {
+                 
+                  
+                     
+                   
+                     
+                  
+                    if(response[0]=="")
+                     {
+                        $('#btnsav').hide();
+
+                        
+                        
+                        
+                      
+                        
+
+                     }
+                     else{
+                      
+
+                      $("#btnsav").show();
+                     }
+                     
+                     
+         
+                     
+                     },
+                     error: function(){
+                        
+                     }
+                 });
+             
+                }
+
+             
+             </script>
+
+             <h5 hidden >{{user}}</h5>
+            
+
+            
+
+        <input hidden onchange="setMonth()"  type="text" id="dishsp" value=" {{special}}" >
+      
+   
+            
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js" ></script>
+
+<!-- For deactivate -->
+
+
+<div  class="modal fade" id="TableModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        
+                         
+       
+        <form action="{% url 'IposApp:NewSpecial'   %}" method="post" enctype="multipart/form-data">
+         
+            {% csrf_token %}
+
+            
+        
+            <div style="overflow-x:auto;">
+            
+           
+            <table  class="table table-striped" style="width:100%">
+                 <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Dish Name</th>
+                    <th>Rate</th>
+                    <th>Photo</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Action</th>
+              </tr>
+              
+              {% for i in menu %}
+                <tbody>
+                    <tr>
+                        <td>{{i.Id}}</td>
+                        <td>{{i.Dish_Name}}</td>
+                        <td>{{i.Rate}}</td>
+                        <td><img style="height:30px;width:30px;" src="{{i.img}}"></td>
+                        <td>{{i.Description}}</td>
+                        <td>{{i.Status}}</td>
+                        <td>
+                        
+                              
+     <a href="{% url 'IposApp:UpdateSpecialMenu' i.Id %}"><img style="height:30px;width:30px;" src="/static/MenuItemsImage/edit-alt.svg"></a> 
+                           
+           <a class="btn btn-light" style="color:Red;" href="{% url 'IposApp:Deactive' i.Id %}" >Deactivate</a> 
+             
+           <a class="btn btn-light" style="color:green;" href="{% url 'IposApp:Active' i.Id %}" toggleBtn  >Active</a>     
+                         
+                        </td>
+                        
+
+                    </tr>
+                    
+                </tbody>
+                {% endfor %}
+            </table> 
+
+</div>
+            <script>
+               function setId()
+             {
+                
+                $.ajax({
+
+        url: "{% url 'IposApp:NewSpecial'   %}",
+        type: 'POST',
+        dataType:'json',
+        headers: { "X-CSRFToken": '{{csrf_token}}' },
+        data: {
+        'month': $('#DishId').val(response[0]),
+          },
+        success: function (response) {
+
+},
+error: function(){
+   
+}
+});
+             }
+
+            </script>
+            
+          
+             
+
+         <script>
+          document.addEventListener("click", handle);
+
+function handle(evt) {
+  if (evt.target.classList.contains("toggleBtn")) {
+    return toggleBtn(evt.target);
+  }
+}
+
+function toggleBtn(btn) {
+  btn.classList.toggle("red");
+  /** ... more actions **/
+}
+         </script>       
+
+             
+       <style>
+        .toggleBtn {
+  background-color: #B8F4B8;
+  border: none;
+  padding: 5px;
+}
+
+.toggleBtn:before {
+  content: "Activate";
+}
+
+.toggleBtn.red {
+  background-color: red;
+  color: white;
+}
+
+.toggleBtn.red:before {
+  content: "Deactivate";
+}
+       </style>        
+                
+            
+    
+        
+      </div>
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+    var exampleModal = document.getElementById('TableModel')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var button = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  var recipient = button.getAttribute('data-bs-whatever')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+//   modalTitle.textContent = ' ' + recipient
+//   modalBodyInput.value = recipient
+})
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- For Edit -->
+
+
+  
+  
+  
+</form>
+     </form>
+
+     
+     <style>
+     .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #33383c;
+  color: white;
+  text-align: center;
+}
+
+  </style>
+
+  <footer class="footer" style="margin-top:10px;">
+      <div class="container">
+          
+                  <img src="/static/MenuItemsImage/arakal.png" height="150px;">
+
+             
+                  <center><span class="brand-text"><h4 style="color:#da9100;font-family:Google Noto Fonts;">Arakkal Palace Restaurant</h4></span></center>
+              
+          
+      </div>
+
+      <div class="text-center mt-5">
+          <p class="footer-alt mb-0 f-14"></p>
+      </div>
+  </footer>
+      
+      <!-- JAVASCRIPT FILES -->
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/jquery.sticky.js' %}"></script>
+      <script src="{% static 'js/click-scroll.js' %}"></script>
+      <script src="{% static 'js/custom.js' %}"></script>
+
+    
+
+
+
+</body>
+</html>

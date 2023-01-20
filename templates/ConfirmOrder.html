@@ -1,0 +1,382 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title></title>
+ 
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title></title>
+<head></head>
+
+<!-- CSS FILES -->
+<link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+
+<link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+
+<link href="{% static 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap' %}" rel="stylesheet">
+
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/templatemo-leadership-event.css' %}" rel="stylesheet">
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+           
+            <span class="brand-text"><h5 style="color:#da9100;font-family:Google Noto Fonts;">Arakkal Palace<br>Restaurant</h5></span>
+        </a>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav" >
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a style="padding:12px; font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Home' %}">Home</a>
+                </li>
+<hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Display' %}">WaitingList</a>
+                </li>
+<hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:FinalReports' %}">Report</a>
+                </li>
+                <hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Tables' %}">Tables</a>
+                </li>
+                <hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;" href="{% url 'IposApp:CustomerPromotion' %}">CustomerPromotion</a>
+                </li>
+
+                <hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:TableView' %}">TableMenu</a>
+                </li>
+                <hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:LogOut' %}">LogOut</a>
+                </li>
+                <hr style="background-color: gainsboro;">
+                <li class="nav-item">
+                    <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:ShowTable' %}">Kitchen</a>
+                </li>
+                <hr style="background-color: gainsboro;">
+            </ul>
+        <div>
+                
+    </div>
+</nav>
+
+<style type="text/css">
+
+
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+
+.table{
+         width:100%;
+         border-collapse:collapse;
+}
+.table td,.table th{
+                 padding:12px 15px;
+                 border:1px solid #ddd;
+                 text-align:center;
+                 font-size:16px;
+                 
+}
+.table th{
+    background-color:rgb(96, 124, 116);
+    color:#ffffff;
+}
+
+.table tbody tr:nth-child(even){
+ background-color:#ffffff;
+ }
+
+.fnts{
+
+font-family:Google Noto Fonts;
+}
+
+
+
+@media(max-width:1024px){
+.table thead th {
+   display: none;
+
+}
+
+
+.special{
+
+ width:300px;
+ height: 200px;
+
+}
+.photobanner {
+position:absolute; 
+top:0px; 
+left:0px; 
+overflow:hidden; 
+white-space: nowrap;
+/* animation: bannermove 10s linear infinite; */
+
+}
+
+
+.nav-toggler{
+ display: flex;
+}
+.header .nav{
+ position: absolute;
+ left: 0;
+ top:100%;
+ width:100%;
+ background-color:darkred;
+ border-top: 1px solid rgba(223, 16, 16, 0.2);
+ opacity: 1;
+ visibility: hidden;
+
+}
+.header .nav ul li{
+ display: block;
+ margin:0;
+
+}
+.header #nav-check:checked ~ .nav{
+ opacity:1 ;
+ visibility: visible;
+
+}
+.header #nav-check:focus ~ .nav-toggler
+{
+ box-shadow: 0 0 15px #000000;
+
+}
+
+.header #nav-check:checked ~ .nav.toggler span{
+ background-color: transparent;
+
+}
+.header #nav-check:checked ~ .nav-toggler span::before{
+top: 0;
+transform: rotate(45deg);
+}
+.header #nav-check:checked ~ .nav-toggler span::after{
+ top: 0;
+ transform: rotate(-45deg);
+}
+.table, .table tbody, .table tr, .table td{
+ display: block;
+ width: 100%;
+
+}
+.table tr{
+ margin-bottom: 15px;
+}
+.table td{
+ text-align: right;
+ padding-left: 50%;
+ text-align: right;
+ position:relative ;
+ height: 50px;
+
+
+}
+
+.table td::before{
+ content: attr(data-label);
+ position: absolute;
+ left: 0;
+ width: 50%;
+ padding-left:15px;
+ font-size: 15px;
+ font-weight: bold;
+ text-align: left;
+
+}
+.session{
+ height:40px;
+}
+
+
+}
+.fnts{
+
+ font-family:Google Noto Fonts ;
+}
+</style>
+  <form action="{% url 'IposApp:Display_Order'  %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+   
+    <table   class="table table-hover" style="margin-top:20px;" >
+        <thead>
+
+           
+           <th>Ticket No</th>
+           <th>Dish Name</th>
+           <th>Rate</th>
+           <th>Date</th>
+           <th>Quantity</th>
+           <th>Table Name</th>
+           <th style="color:crimson;">Grand Total</th>
+           <th>Action</th>
+           
+
+          
+          
+
+      </thead>
+          <tbody>
+         {% for i in Special %}
+         <tr>
+             
+             <td style="text-align:right;"   data-label="TicketNo">{{i.TicketNo}}</td>
+             <td style="text-align:right;"   data-label="Dish Name">{{i.SpecialDish}}</td>
+             <td style="text-align:right;"   data-label="Rate">{{i.Rate}}</td>
+             <td style="text-align:right;"   data-label="Date">{{i.Date}}</td> 
+             <td style="text-align:right;"   data-label="Quantity">{{i.Special_quantity}}</td>
+             <td style="text-align:right;"   data-label="Table Name">{{i.Table_Name}}</td>
+             <td style="text-align:right; background-color: darkgrey;color: brown;"   data-label="GrandTotal">{{i.GrandTotal}}</td>
+             <td style="text-align:right;"   data-label="Action">
+               
+                <a href="{% url 'IposApp:Cancel' i.id  %}" class="btn btn-danger">Cancel</a>
+            </td>
+             
+         </tr>
+
+
+
+{% endfor %}
+
+
+
+
+</tr>
+
+         </tbody>
+     </table>
+
+   
+  </form>
+  <style>
+    .bg-footer {
+background-color: #33383c;
+padding: 50px 0 30px;
+}
+.footer-heading {
+letter-spacing: 2px;
+}
+
+.footer-link a {
+color: #acacac;
+line-height: 40px;
+font-size: 14px;
+transition: all 0.5s;
+}
+
+.footer-link a:hover {
+color: #1bbc9b;
+}
+
+.contact-info {
+color: #acacac;
+font-size: 14px;
+}
+
+.footer-social-icon {
+font-size: 15px;
+height: 34px;
+width: 34px;
+line-height: 34px;
+border-radius: 3px;
+text-align: center;
+display: inline-block;
+}
+
+.facebook {
+background-color: #4e71a8;
+color: #ffffff;
+}
+
+.twitter {
+background-color: #55acee;
+color: #ffffff;
+}
+
+.google {
+background-color: #d6492f;
+color: #ffffff;
+}
+
+.apple {
+background-color: #424041;
+color: #ffffff;
+}
+
+.footer-alt {
+color: #acacac;
+}
+
+.footer-heading {
+position: relative;
+padding-bottom: 12px;
+}
+
+.footer-heading:after {
+content: '';
+width: 25px;
+border-bottom: 1px solid #FFF;
+position: absolute;
+left: 0;
+bottom: 0;
+display: block;
+border-bottom: 1px solid #1bbc9b;
+}
+
+</style>
+
+<footer class="section bg-footer" style="margin-top:125px;">
+    <div class="container">
+        
+                <img src="/static/MenuItemsImage/arakal.png" height="150px;">
+
+           
+                <center><span class="brand-text"><h4 style="color:#da9100;font-family:Google Noto Fonts;">Arakkal Palace Restaurant</h4></span></center>
+            
+        
+    </div>
+
+    <div class="text-center mt-5">
+        <p class="footer-alt mb-0 f-14"></p>
+    </div>
+</footer>
+<!-- JAVASCRIPT FILES -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.sticky.js' %}"></script>
+<script src="{% static 'js/click-scroll.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+  
+  
+</body>
+</html>

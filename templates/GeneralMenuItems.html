@@ -1,0 +1,568 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Orders DetailView</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+
+  <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+        
+        <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+        
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+
+
+
+  <!-- Favicons -->
+  <link href="/static/assets/img/arakal.png" rel="icon">
+  <link href="/static/" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/static/assets/css/style.css" rel="stylesheet">
+
+
+
+
+  
+  
+
+  <!-- =======================================================
+  * Template Name: Arsha - v4.9.1
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<style>
+  @media (max-width:1024px){
+
+
+
+
+
+
+}
+</style>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top " style="background-color: cornflowerblue;">
+    <div class="container d-flex align-items-center">
+
+      <h5 class="logo me-auto"><a href="index.html" style="color:#da9100;font-family:Google Noto Fonts;">ARAKKAL PALACE <br>RESTAURANT</a></h5>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="{% url 'IposApp:Home' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'IposApp:Display' %}">WaitingList</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'IposApp:CustomerPromotion' %}">CustomerPromotion</a></li>
+          <li><a class="nav-link   scrollto" href="{% url 'IposApp:FinalReports' %}">Report</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'IposApp:Tables' %}">Tables</a></li>
+          <li class="dropdown"><a href="#"><span>Menu</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{% url 'IposApp:TableView' %}">TableMenu</a></li>
+              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li> -->
+              <li><a href="{% url 'IposApp:Confirm_Orders' %}">Orders</a></li>
+              <li><a href="{% url 'IposApp:CreateSpecial' %}">CreateSpecial</a></li>
+              <!-- <li><a href="#">Drop Down 4</a></li> -->
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="{% url 'IposApp:LogOut' %}">LogOut</a></li>
+         <li>
+          <a href=""><img src="https://img.icons8.com/glyph-neue/64/null/buy.png"/><span id="cart"></span></a>
+         </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+  <br>
+
+
+  
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+<!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Clients Section ======= -->
+    <!-- End Cliens Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+
+     
+      <form action="/IposApp/GeneralMenuSelect/{{id}}" method="post" enctype="multipart/form-data">
+                <!-- Button trigger modal -->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% for i in data %}
+
+        <form action="{% url 'IposApp:GeneralOrder' i.DishID %}" method="post" enctype="multipart/form-data">
+           
+         
+        </form>
+        {% endfor %}
+
+        {{data.DishName}}
+           {{data.DIRate}}
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+    
+      
+      <!-- Modal -->
+      <div class="container">
+      <div class="row">
+        {% for i in menu %}
+          <div class="col-md-3" style="margin-top:40px;">
+          
+            <a href="{% url 'IposApp:GeneralOrder' i.DishID %}">
+              
+         
+      <div  class="card"style="background-color:rgb(220, 242, 243);color:white;height:100%;">
+          
+           
+          <div  class="card-body">
+              
+            <center>
+            <img src="{{i.Photo}}" style="width:100%; border-radius:5px;">
+            <h6  class="catg">{{i.DishName}}</h6>
+            <h6 style="margin-left:15px;margin-top:5px;">{{i.DIRate}}</h6>
+            <a  id="lolz"  onclick="addPizza('{{i.DishID}}')" data-bs-toggle="modal" href="#exampleModalToggle"  type="button" class="btn btn-outline-danger">ADD<sup style="font-size:large;">+</sup></a>          
+          </center>
+  
+  
+           
+          </div>
+      
+        </div>
+
+       
+      
+      </a> 
+      </div>
+     
+      {% endfor %}
+     
+    </div>
+    
+      <div class="col-md-4 orders" style="margin-top:40px;">
+        <div class="bg-dark p-4 rounded text-light">
+        <h5 class="text-center">OrderList</h5>
+       <ul id="pcart"></ul>
+       
+        <h5 class="text-right" id="ptotal">Total : 0 $</h5>
+        
+      </div>
+      </div>
+
+    
+  </div>
+
+
+
+  <!-- Pop up menu -->
+
+
+
+
+
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">General Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-success">Order</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {% for i in data %}
+
+          <h5>{{i.DishName}}</h5>
+
+
+          {% endfor %}
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <a class="btn btn-primary"  role="button">Open first modal</a> -->
+    
+
+  <script>
+
+var exampleModal = document.getElementById('exampleModal')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var button = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  var recipient = button.getAttribute('data-bs-whatever')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  modalTitle.textContent = 'New message to ' + recipient
+  modalBodyInput.value = recipient
+})
+    </script>
+
+
+  <!-- pop up end -->
+
+
+     
+
+   
+   
+  </form>
+   
+    
+   
+    </script>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+   
+
+
+
+<script language="javascript" type="text/javascript">
+lol = document.getElementById('lolz').value;
+function kk(){
+alert(lol);
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+
+
+
+<script>
+  $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text()
+  modal.find('.modal-body input').val(recipient)
+})
+</script>
+
+   
+
+    
+   
+
+    <style>
+ 
+      .gradient-custom {
+/* fallback for old browsers */
+background: #6a11cb;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right, rgb(255, 255, 255), rgba(37, 117, 252, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right, rgb(255, 255, 255), rgba(37, 117, 252, 1))
+}
+    </style>
+
+  
+
+  <style>
+    .container1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-box{
+  height: 40px;
+  width: 100px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button{
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 5px 10px;
+}
+
+p{
+  padding: 5px 10px;
+}
+  </style>
+<style>
+  .cards {
+   display: flex;
+   justify-content: space-between;
+}
+</style>
+
+
+
+      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>   
+      <script type="text/javascript" src="/static/jquery-1.4.2.min.js"></script>
+
+
+</div>
+
+
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      
+
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js" ></script>
+
+
+
+<!-- For deactivate -->
+
+
+
+    </section>
+
+<script>
+
+  var hours = 24;
+  var now = new Date().getTime();
+  var stepTime  = localStorage.getItem('stepTime');
+
+  if (stepTime == null){
+
+    localStorage.setItem('stepTime',now)
+
+  }
+
+  else{
+    if(now - stepTime > hours*60*60*1000)
+    {
+      localStorage.clear()
+      localStorage.setItem('stepTime',now);
+    }
+
+  }
+  </script>
+
+  <script>
+    var orders = JSON.parse(localStorage.getItem('orders'));
+    var total  = localStorage.getItem('total');
+
+    if(orders === null||orders === undefined)
+    {
+      localStorage.setItem('orders',JSON.stringify([]));
+      orders = JSON.parse(localStorage.getItem('orders'));
+    }
+    if(total === null||total === undefined)
+    {
+      localStorage.setItem('total',0);
+      total = JSON.parse(localStorage.getItem('total'));
+    }
+
+    var cart = document.querySelector("#cart");
+    cart.innerHTML =orders.length 
+  </script>
+
+  <script>
+    var pcart =document.querySelector("#pcart");
+     var ptotal = document.querySelector("#ptotal");
+    
+
+    //Add pizza
+
+    function addPizza(pid){
+      //get pizza name
+      pizzaId = '#piz'+pid;
+      pizzart = '#pizza'+pid;
+      var name=document.querySelector(pizzaId).innerHTML;
+      //get pizza price
+      var rate=document.querySelector(pizzart).innerHTML;
+
+
+      var orders = JSON.parse(localStorage.getItem('orders'));
+      var total  = localStorage.getItem('ptotal');
+
+      var cartSize = orders.length;
+      orders[cartSize]=[name,rate];
+      localStorage.setItem('orders',JSON.stringify(orders));
+      
+      
+      total = Number(total)+Number(rate);
+      localStorage.setItem('total',total);
+
+      //Updating the number of carts
+      var cart = document.querySelector("#cart");
+      cart.innerHTML =orders.length;
+      butto = '<a href="#" class="del" onclick="removePizza('+ cartSize +')">x</a>';
+
+      ptotal.innerHTML = 'Total :'+ total + '$';
+      pcart.innerHTML += '<li>'+name+' '+ rate+' '+ '$' +butto+ '</li>';
+      
+
+    }
+
+    function pshoppingCart(){
+
+      var orders = JSON.parse(localStorage.getItem('orders'));
+      var total  = localStorage.getItem('total');
+      var cartSize =orders.length;
+      pcart.innerHTML = '';
+      for(let i = 0; i < cartSize; i++)
+      {
+        butto = '<a href="#" class="del" onclick="removePizza('+ i +')">x</a>';
+        pcart.innerHTML += '<li>'+orders[i][0]+' '+orders[i][1]+' : '+orders[i][2]+ '$' +butto+ '</li>';
+      }
+      ptotal.innerHTML = 'Total :'+ total + '$';
+
+    }
+    pshoppingCart();
+
+    function removePizza(n){
+
+      var orders = JSON.parse(localStorage.getItem('orders'));
+      var total  = localStorage.getItem('total');
+
+      total = Number(total)-Number(orders[n][2]);
+      orders.splice(n, 1);
+      localStorage.setItem('orders',JSON.stringify(orders));
+      localStorage.setItem('total', total);
+      pshoppingCart();
+      
+
+
+
+    }
+  </script>
+
+ 
+
+   
+
+    
+  
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+   
+
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        <center>
+          <h5 class="logo me-auto"><a href="index.html" style="color:#da9100;font-family:Google Noto Fonts;">ARAKKAL PALACE RESTAURANT</a></h5>
+        </center>
+      </div>
+      <div class="credits">
+        
+        <a href="https://bootstrapmade.com/"></a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  
+  <script src="/static/assets/vendor/aos/aos.js"></script>
+  <script src="/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/static/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="/static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/static/assets/js/main.js"></script>
+
+</body>
+
+</html>

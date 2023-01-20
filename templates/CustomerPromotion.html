@@ -1,0 +1,560 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            if ( window.history.replaceState ) {
+                window.history.replaceState(null,null,window.location.href );    
+            }
+        </script> 
+   
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#btnupdt").hide();
+
+                
+            });
+        </script> 
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title></title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+        
+        <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+        
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/templatemo-leadership-event.css' %}" rel="stylesheet">
+        
+<style>
+    .fnts{
+
+font-family:Google Noto Fonts ;
+    }
+
+@media(max-width:1024px){
+      #btn{
+
+        height:50%;
+        width:100%;
+      }
+      #cop{
+        
+        margin-top:20px;
+      }
+   
+    }
+
+
+</style>
+    </head>
+
+  
+    <body>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+                   
+                    <span class="brand-text"><h5 style="color:#da9100;font-family:Google Noto Fonts;">Arakkal Palace<br>Restaurant</h5></span>
+                </a>
+
+
+                <div class="collapse navbar-collapse" id="navbarNav" >
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a style="padding:12px; font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Home' %}">Home</a>
+                        </li>
+<hr style="background-color: gainsboro;">
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Display' %}">WaitingList</a>
+                        </li>
+<hr style="background-color: gainsboro;">
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:FinalReports' %}">Report</a>
+                        </li>
+                        <hr style="background-color: gainsboro;">
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Tables' %}">Tables</a>
+                        </li>
+                        <hr style="background-color: gainsboro;">
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;" href="{% url 'IposApp:CustomerPromotion' %}">CustomerPromotion</a>
+                        </li>
+
+                        <hr style="background-color: gainsboro;">
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:TableView' %}">TableMenu</a>
+                        </li>
+                        <hr style="background-color: gainsboro;">
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:LogOut' %}">LogOut</a>
+                        </li>
+                        <hr style="background-color: gainsboro;">
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:ShowTable' %}">Kitchen</a>
+                        </li>
+                        <hr style="background-color: gainsboro;">
+                    </ul>
+                <div>
+                        
+            </div>
+        </nav>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+
+    {% for msg in messages %}
+      
+        <script> 
+         swal.fire('{{ msg }}',"Good job!", "success");
+
+     </script> 
+
+   
+{% endfor %}
+
+
+
+
+
+
+         
+        <main class="fnts" >
+
+          <div class="container">
+                   
+                   
+            <form id="Form" onsubmit=" validateForm()"   action="{% url 'IposApp:CustomerPromotion' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+              
+  
+                <div class="card" style="margin-top:20px;">
+                    <div class="card-title"><h4><center style="font-weight:bold; background-color: cadetblue;">Customer Promotion</center></h4></div>
+           
+                    <div class="card-body">
+                        <div class="row" style="font-weight:bolder;">
+                            
+                             
+                            <div class="col-md-12">
+                                <input hidden  type="text" id="CID" name="CC_ID">
+                                <label><b>Contact No</b></label>
+                                <div><input type="text" class="form-control"  name="ContactNo" id="cont"  placeholder="ContactNo" onchange="setMonth()"  required></div>
+                                <br>
+                                
+                                <label><b>Customer Name</b></label>
+                                <div><input type="text"  autocomplete="off" class="form-control" name="Name" id="Name" placeholder="CustomerName" required></div>
+                                <br>
+                                
+                                <label><b>Address</b></label>
+                                <div><textarea name="Address" class="form-control" name="Address" id="Address" placeholder="Address" required></textarea></div>
+                                <br>
+                                <label><b>whatsappNo</b></label>
+                                <div><input type="text" class="form-control" name="WhatsAppNo" id="WhatsAppNo" placeholder="whatsappNo" required ></div>
+                                <br>
+                                <label><b>MobileNo</b></label>
+                                <div><input type="text" class="form-control" name="MobileNo" id="MobileNo" placeholder="MobileNo" required></div>
+                                <br>
+                                <label><b>Email</b></label>
+                                <div><input type="text" class="form-control" name="EmailId" id="EmailId" placeholder="@gmail.com" required></div>
+                                <br>
+
+                            
+
+                                
+
+                            </div>
+                           
+
+                        </div>
+                        
+                      <div class="row">
+                        <div class="col-md-3">
+                            <label><b>Date</b></label>
+                            <input type="date" name="ProDate" class="form-control" id="toDate" >
+                           
+                        </div>
+
+                        <script>
+                            var date = new Date();
+                            var day = date.getDate();
+                            var month = date.getMonth() + 1;
+                            var year = date.getFullYear();
+                            if (month < 10) month = "0" + month;
+                            if (day < 10) day = "0" + day;
+                            var today = year + "-" + month + "-" + day;
+                            document.getElementById('toDate').value = today;
+                        </script> 
+                       
+                        <div class="col-md-3">
+                            <label  id="cop"><b>Coupon Number</b></label>
+                          <input type="text"  class="form-control" required name="coupon" placeholder="Coupon Number"  >
+                        </div>
+                    
+                        
+                       
+                        <div class="col-md-3">
+                            <label  id="cop"><b>Promotion Type</b></label>
+                            <select  name="PromotionType" class="form-select" aria-label="Default select example" >
+                                <option selected>Open this select menu</option>
+                                <option value="ONAM">ONAM</option>
+                                <option value="CHRISTMAS">CHRISTMAS</option>
+                                
+
+                              </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label id="cop"><b>Discount(%)</b></label>
+                          <input type="text"  class="form-control" name="CouponDiscountPer" required placeholder="0.00" >
+                        </div>
+                    
+
+                      </div>
+                      <br>
+                      
+               
+                        <div>
+                            <!-- <button  type="button" class="btn btn-primary"  id="btSubmit" onclick="openPopup()">Add User</button>  -->
+                            <!-- <input type="submit" class="btn btn-success"   style="color:white"  data-role="button" id="btSubmit"  type="submit" class="btnp"> -->
+                            
+                             <!-- <a href="#" data-role="button "  class="btn btn-success"   style="color:white"  data-role="button" id="btSubmit"  type="submit" class="btnp" onclick="openPopup()">Save</a>  -->
+                           
+                             <a href="#"><input  type="submit"   class="btn btn-success"  style="color:white"  id="btSubmit"  type="submit" ></a> 
+                            <a href="#"><input value="Update"  type="submit" data-role="button "  class="btn btn-danger" style="color:white" data-role="button" id="btnupdt"   type="submit" class="btnp" ></a> 
+                           
+                        </div>
+                        
+                    </div>
+                    
+
+           
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+             <script>
+                
+             function setMonth()
+             {
+                var month = $('#cont').val();
+                var na = $('#Name').val();
+
+                 
+                 $.ajax({
+
+                     url: "{% url 'IposApp:CustomerFilter'   %}",
+                     type: 'POST',
+                     dataType:'json',
+                     headers: { "X-CSRFToken": '{{csrf_token}}' },
+                     data: {
+                     'month': month,
+                     },
+                     success: function (response) {
+                     
+                    $('#CID').val(response[0]);   
+                     $('#Address').val(response[4]);
+                     $('#Name').val(response[2]);
+                     $('#WhatsAppNo').val(response[12]);
+                     $('#MobileNo').val(response[13]);
+                     $('#EmailId').val(response[14]);
+                     var na = $('#Name').val();
+                     if(na!='')
+                     {
+                        $('#btSubmit').hide();
+                        $("#btnupdt").show();
+                       
+                        
+
+                     }
+                     
+         
+                     
+                     },
+                     error: function(){
+                        
+                     }
+                 });
+             }
+             </script>
+
+            
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js" ></script>
+
+
+
+
+                <style>
+                    .con{
+                       
+                      
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+        
+                    }
+                    .btnp{
+                        padding: 10px 60px;
+                        background: rgb(4, 54, 24);
+                        border:0;
+                        outline: none;
+                        cursor: pointer;
+                        font-size: 22px;
+                        font-weight:500;
+                        border-radius:30px;
+                    }
+                    .popup{
+                        width:400px;
+                        background:rgb(230, 144, 144);
+                        border-radius:6px;
+                        position: absolute;
+                        top:0;
+                        margin-top:10px;
+                        left:50%;
+                        transform:translate(-50%,-50%);scale:(0.1);
+                        text-align: center;
+                        padding: 0 30px 30px;
+                        color:rgb(248, 246, 246);
+                        visibility: hidden;
+                        transition: transform 0.4s,top 0.4s;
+        
+                    }
+        
+                    .open-popup{
+                        visibility: visible;
+                        top:50%;
+                        transform:translate(-50%,-50%)scale(1);
+                    }
+                    .popup img{
+                        width:100px;
+                        margin-top:-50px;
+                        border-radius:50%;
+                        box-shadow:0 2px 5px rgba(0,0,0,0.2);
+                    }
+                    .popup h2{
+                        font-size:38px;
+                        font-weight:500;
+                        margin: 30px 0 10px;
+                    }
+                    .popup button{
+                        width:100px;
+                        margin-top:50px;
+                        padding:10px 0;
+                        background: #fffff6;
+                        color:rgb(3, 3, 3);
+                        border:0;
+                        outline:none;
+                        font-size:18px;
+                        border-radius:4px;
+                        cursor: pointer;
+                        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+                    }
+                    </style>
+           
+<!--            
+          <div class="container">
+            <div class="popup" id="popup"> 
+                <img src="{% static 'images/correct.png' %}">
+                <h6>Do you want to save the changes?</h6>
+                <p style="color:rgb(180, 71, 7);"></p>
+                <button type="buttonp" onclick="closePopup()">Yes</button>
+
+            </div>
+
+        </div> -->
+    </div>
+
+
+   
+
+    
+
+
+              
+                 
+              
+              <script>
+                
+                let popup =document.getElementById("popup");
+                function openPopup(){
+                    Swal.fire({
+  title: 'Do you want to save the changes?',
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: 'Save',
+  denyButtonText: `Don't save`,
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    Swal.fire('Saved!', '', 'success')
+  } else if (result.isDenied) {
+    Swal.fire('Changes are not saved', '', 'info')
+  }
+})
+                    
+
+                    popup.classList.add("open-popup");
+
+                }
+
+                function closePopup(){
+
+                    popup.classList.remove("open-popup");
+
+                }
+
+
+
+
+
+            </script>
+          
+
+
+            </form>
+
+        </div>
+        
+              
+                </div>
+            
+
+
+        </main>
+
+        <style>
+            .bg-footer {
+    background-color: #33383c;
+    padding: 50px 0 30px;
+}
+.footer-heading {
+    letter-spacing: 2px;
+}
+
+.footer-link a {
+    color: #acacac;
+    line-height: 40px;
+    font-size: 14px;
+    transition: all 0.5s;
+}
+
+.footer-link a:hover {
+    color: #1bbc9b;
+}
+
+.contact-info {
+    color: #acacac;
+    font-size: 14px;
+}
+
+.footer-social-icon {
+    font-size: 15px;
+    height: 34px;
+    width: 34px;
+    line-height: 34px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+}
+
+.facebook {
+    background-color: #4e71a8;
+    color: #ffffff;
+}
+
+.twitter {
+    background-color: #55acee;
+    color: #ffffff;
+}
+
+.google {
+    background-color: #d6492f;
+    color: #ffffff;
+}
+
+.apple {
+    background-color: #424041;
+    color: #ffffff;
+}
+
+.footer-alt {
+    color: #acacac;
+}
+
+.footer-heading {
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-heading:after {
+    content: '';
+    width: 25px;
+    border-bottom: 1px solid #FFF;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    border-bottom: 1px solid #1bbc9b;
+}
+
+        </style>
+
+        <footer class="section bg-footer" style="margin-top:10px;">
+            <div class="container">
+                
+                        <img src="/static/MenuItemsImage/arakal.png" height="150px;">
+
+                   
+                        <center><span class="brand-text"><h4 style="color:#da9100;font-family:Google Noto Fonts;">Arakkal Palace Restaurant</h4></span></center>
+                    
+                
+            </div>
+    
+            <div class="text-center mt-5">
+                <p class="footer-alt mb-0 f-14"></p>
+            </div>
+        </footer>
+
+      
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   
+                       
+                                 
+                                   

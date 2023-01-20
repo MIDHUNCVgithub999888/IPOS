@@ -1,0 +1,353 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Leadership Event HTML5 Bootstrap v5 Template</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+        
+        <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+        
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/templatemo-leadership-event.css' %}" rel="stylesheet">
+        
+<style>
+    .fnts{
+
+font-family:Google Noto Fonts ;
+}
+</style>
+    </head>
+    
+    <body>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- <img src="{% static 'images/Arakkal_logo_png.jpg' %}" height="50px;"> -->
+                <a class="navbar-brand mx-auto mx-lg-0">
+                    
+                    <a href="" class="navbar-brand mx-auto mx-lg-0">
+                  
+                        <span class="brand-text">Arakkal Palace</span>
+                    </a>
+    
+                </a>
+
+
+                <div class="collapse navbar-collapse" id="navbarNav" >
+                    <ul class="navbar-nav ms-auto" >
+                        <li class="nav-item">
+                            <a style="padding:12px; color: white;font-family:Google Noto Fonts;font-size: x-large;"  href="{% url 'IposApp:Home' %}">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;font-family:Google Noto Fonts;font-size: x-large;"  href="{% url 'IposApp:Display' %}">WaitingList</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;font-family:Google Noto Fonts;font-size: x-large;" href="{% url 'IposApp:FinalReports' %}">Report</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;font-family:Google Noto Fonts;font-size: x-large;" href="{% url 'IposApp:Tables' %}">Tables</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;font-family:Google Noto Fonts;font-size: x-large;" href="{% url 'IposApp:TableView' %}">TableMenu</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;font-family:Google Noto Fonts;font-size: x-large;" href="{% url 'IposApp:LogOut' %}">LogOut</a>
+                        </li>
+
+                    </ul>
+                <div>
+                        
+            </div>
+        </nav>
+
+        <main class="fnts">
+
+            
+
+
+            <section class="highlight">
+            </section>
+                <div class="container-fluid">
+                   
+         
+                   
+                   
+          <form method="post"  action="{% url 'IposApp:Highlight'   %}" enctype="multipart/form-data">   
+            {% csrf_token %} 
+            <br>
+         <div><h4><center style="font-weight:bold;background-color: lightblue;">Special Menu</center></h4></div>
+<div class="container-fluid" style="background-color: rgb(255, 255, 255);">
+
+            <div class="row" style="margin-left:20px;" id="example">
+               
+                
+                {%   for i  in display %}
+                  
+
+                <div  class="col-md-6">
+                 
+                    <!-- <h4>Id:{{i.Id}}</h4> -->
+
+                   
+
+                    <h4>Item Name:{{i.Dish_Name}}</h4>
+
+                    <br>
+                    <br>
+                    <h4>Rate :{{i.DIRate}}</h4>
+
+                    <br>
+
+                    
+                    <h6>Discription:{{i.Description}}</h6>
+                    
+                        
+                   
+                    <center><a href="{% url 'IposApp:BuyProducts' i.Id  %} "><input class="btn btn-warning" type="button" value="Buynow"></a></center>       
+
+                </div>
+                
+                <div class="col-md-4" style="height:185px;width:auto;" >
+                    
+
+                    <img src="{{i.img}}" width="280px;" height="179px"/> 
+
+                   
+
+                </div>
+                <div class="col-md-2">
+                    
+                    <div class="form-check">
+                      <!-- <input style="height:30px;width:30px;"  class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> -->
+                      <!-- <input type="checkbox"  class="new" name="SpecialMenu" 
+        value="{{i.Dish_Name}}{{i.DIRate}}{{i.Description}}{{i.img}}"><br>
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Select items
+                        </label> -->
+
+                        
+                      </div>
+
+                </div>
+              
+
+                <hr style="border:1px solid black;margin-top:5px;">
+                
+
+
+               
+{% endfor %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+  
+    <!-- <button onclick="getValue()"> 
+        Get Value
+    </button> -->
+    <!-- <a type="button" href="{% url 'IposApp:SpecialCheck' %}" onclick="getValue()" class="btn btn-success">Submit</a> -->
+      
+    <script>
+        function getValue() {
+            var checkboxes = 
+                document.getElementsByClassName('new');
+           
+            var result = "";
+  
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    result += checkboxes[i].value 
+                        + " " + "  ";
+                }
+            }
+            // document.write("<p> You have selected : "
+            //         + result + "</p>");
+            alert(result)
+     
+  
+            $.ajax({
+            
+                url: "{% url 'IposApp:SpecialCheck'   %}",
+                type: 'POST',
+                dataType:'json',
+                headers: { "X-CSRFToken": '{{csrf_token}}' },
+                data: {
+                'month': result,
+            },
+                success: function (response) {
+                    alert('success')
+                
+        },
+                error: function(){
+                    alert('error')
+   
+        }
+    });
+        }
+      
+        
+    </script>
+
+
+<!-- <a href="{% url 'IposApp:SpecialCheck'%}">Menu</a> -->
+
+
+
+<table>
+
+</table>
+
+
+
+
+
+            </div>
+
+        </div>
+        
+        
+          </form>
+          <!-- <a  id="bn"   href="{% url 'IposApp:Cancelbtn' %}" class="btn btn-danger">Close</a>  -->
+              <hr>
+              
+                </div>
+                <style>
+                    #bn {
+                      color: rgb(5, 4, 4);
+                      box-shadow: -3px 3px rgb(13, 56, 38), -2px 2px rgb(51, 45, 104), -1px 1px rgb(37, 51, 175);
+                      border: 1px solid rgb(4, 41, 24);
+                      background-color: bisque;
+                      width:100%;
+                      height: 50%;
+                      font-weight: bold;
+                      font-size: x-large;
+                  }
+                  </style>
+            
+
+
+        </main>
+
+        <style>
+            .bg-footer {
+    background-color: #33383c;
+    padding: 50px 0 30px;
+}
+.footer-heading {
+    letter-spacing: 2px;
+}
+
+.footer-link a {
+    color: #acacac;
+    line-height: 40px;
+    font-size: 14px;
+    transition: all 0.5s;
+}
+
+.footer-link a:hover {
+    color: #1bbc9b;
+}
+
+.contact-info {
+    color: #acacac;
+    font-size: 14px;
+}
+
+.footer-social-icon {
+    font-size: 15px;
+    height: 34px;
+    width: 34px;
+    line-height: 34px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+}
+
+.facebook {
+    background-color: #4e71a8;
+    color: #ffffff;
+}
+
+.twitter {
+    background-color: #55acee;
+    color: #ffffff;
+}
+
+.google {
+    background-color: #d6492f;
+    color: #ffffff;
+}
+
+.apple {
+    background-color: #424041;
+    color: #ffffff;
+}
+
+.footer-alt {
+    color: #acacac;
+}
+
+.footer-heading {
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-heading:after {
+    content: '';
+    width: 25px;
+    border-bottom: 1px solid #FFF;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    border-bottom: 1px solid #1bbc9b;
+}
+
+        </style>
+
+        <footer class="section bg-footer" style="margin-top:10px;">
+            <div class="container">
+                
+                        <img src="/static/MenuItemsImage/arakal.png" height="150px;">
+
+                   
+                        <center><span class="brand-text"><h4 style="color:#da9100;font-family:Google Noto Fonts;">Arakkal Palace Restaurant</h4></span></center>
+                    
+                
+            </div>
+    
+            <div class="text-center mt-5">
+                <p class="footer-alt mb-0 f-14"></p>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+
+    </body>
+</html>

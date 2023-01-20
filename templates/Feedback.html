@@ -1,0 +1,552 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Arakkal Palace</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+        
+        <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+        
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/templatemo-leadership-event.css' %}" rel="stylesheet">
+
+<style>
+    input[type=radio] {
+    border: 0px;
+    width: 20px;
+    height: 20px;
+}
+.fnts{
+
+    font-family:Google Noto Fonts ;
+}
+@media(max-width:1024px){
+
+    input[type=radio] {
+    border: 0px;
+    width: 30px;
+    height: 20px;
+
+
+}
+.fnts{
+
+font-family:Google Noto Fonts ;
+}
+
+.popup{
+               
+                width:200px;
+                background:rgb(247, 43, 7);
+                border-radius:6px;
+                position: absolute;
+                top:0;
+                left:50%;
+                transform:translate(-50%,-50%);scale:(0.1);
+                text-align: center;
+                padding: 0 30px 30px;
+                color:rgb(8, 6, 6);
+                visibility: hidden;
+                transition: transform 0.4s,top 0.4s;
+
+
+            }
+
+}
+
+
+</style>
+    </head>
+    
+    <body>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="" class="navbar-brand mx-auto mx-lg-0">
+                  
+                    <span class="brand-text"><h5 style="color:#da9100;font-family:Google Noto Fonts;">Arakkal  Palace <br>Restaurant</h5></span>
+                </a>
+
+
+
+
+                <div class="collapse navbar-collapse" id="navbarNav" >
+                    <ul class="navbar-nav ms-auto" hidden >
+                        <li class="nav-item">
+                            <a style="padding:12px; color: white;"  href="{% url 'IposApp:Home' %}">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;"  href="{% url 'IposApp:Display' %}">WaitingList</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:FinalReports' %}">Report</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:Tables' %}">Tables</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:TableView' %}">TableMenu</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:LogOut' %}">LogOut</a>
+                        </li>
+
+                    </ul>
+                <div>
+                        
+            </div>
+        </nav>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+    {% for msg in messages %}
+      
+    <script> 
+     swal.fire('{{ msg }}',"Good job!", "success");
+
+ </script> 
+
+
+{% endfor %}
+
+        <main class="fnts">
+
+           
+
+
+            <section class="highlight">
+                <div class="container-fluid">
+                    
+              
+                  
+              
+                </div>
+            </section>
+
+            <div class="container-fluid" style="margin-top:25px;">
+
+                <form  action="{% url 'IposApp:Feedbackinsert' %}" method="post"  enctype="multipart/form-data">
+                    {% csrf_token %}
+      
+                    <div class="row">
+                      <div class="col-md-8">
+                          <label><h4>TicketNO : </h4></label><span style="font-weight: bold;font-size: x-large;"><h7>{{result.TicketNo}}</h7></span>
+                      </div>
+      
+                      <div class="col-md-4">
+      
+                         
+                       
+                          <label><h4>KOT-Date :</h4></label><span style="font-weight: bold;font-size: x-large;">{{result.BillDate}}</span>
+     
+                          
+                      </div>
+      
+                  </div>
+      
+      
+                  <div class="card">
+                      <div class="card-title" style="background-color:cadetblue;color:white;"><h4><center>Feedback</center></h4></div>
+                      <div class="card-body" style="background-color:white;">
+                          <table class="table" style="color:white">
+                              <tr>
+                                  <td><h4><center>{{ans}}</center></h4></td>
+                              </tr>
+                             
+              
+                          </table>
+                       
+      
+                          <div class="row" style="color:white ;">
+                              <div class="col-md-12">
+                                  <h5>Food Feedback&ensp;:</h5>
+                              </div>
+      
+                          </div>
+                          <br>
+        
+                          
+                        <div class="row">
+                          
+                          <div class="col-md-2">
+
+                            <label  style="color: rgb(247, 204, 191); font-weight: bold;font-size: large;"></label>
+                            <input hidden="False" name="FoodFeedback" value="Not selected" checked  type="radio">
+
+
+                            <input name="FoodFeedback" value="Excellent"   type="radio">
+                            <label style="color: rgb(29, 22, 20);font-weight: bold;font-size: x-large;">Excellent</label>
+                            
+
+                          </div>
+
+                          <div class="col-md-2">
+                            <input name="FoodFeedback" value="Great"  type="radio">
+                            <label style="color: rgb(22, 22, 21);font-weight: bold;font-size:  x-large;">Great</label>
+                           
+
+                          </div>
+                                  
+                                <div class="col-md-2">
+                                    <input name="FoodFeedback" value="Good"    type="radio">
+                                    <label style="color: rgb(12, 12, 11);font-weight: bold;font-size:  x-large;">Good</label>
+                                   
+
+                                </div> 
+          
+                              <div class="col-md-2">
+                                <input name="FoodFeedback" value="Average" type="radio">
+                                <label style="color: rgb(10, 10, 10);font-weight: bold;font-size:  x-large;">Average</label>
+                                
+
+                              </div>    
+         
+                                 <div class="col-md-2">
+                                    <input name="FoodFeedback" value="Bad"  type="radio">
+                                    <label style="color: rgb(10, 10, 10);font-weight: bold;font-size:  x-large;">Bad</label>
+                                   
+
+                                 </div>
+                   
+                                 
+                  
+                            <div class="col-md-2">
+                                
+
+                                <input  type="text" placeholder="Comments" name=" FoodComment" class="form-control" >
+
+                            </div>
+                                 
+                               
+                                </div>
+                          
+      
+                      <br>
+                      
+      
+                          <div class="row" style="color:white ;">
+                              <div class="col-md-12">
+                                  <h5>Service Feedback&ensp;:</h5>
+                              </div>
+      
+                          </div>
+                          <br>
+                          <div class="row">
+                              <div class="col-md-2">
+                                  <label  style="color: rgb(247, 204, 191); font-weight: bold;font-size: x-large;"></label><input hidden="False" name="ServiceFeedback" value="Not selected" checked  type="radio">
+
+                                  <input name="ServiceFeedback" value="Excellent" id="ex" type="radio">
+                                  <label style="color: rgb(14, 13, 13);font-weight: bold;font-size: x-large;">Excellent</label>
+                                  
+                              </div>
+                              <div class="col-md-2">
+                                <input name="ServiceFeedback" value="Great" id="bel" type="radio">
+                                <label style="color: rgb(14, 13, 13);font-weight: bold;font-size: x-large;">Great</label>
+                                  
+                              </div>
+                              <div class="col-md-2">
+                                <input name="ServiceFeedback" value="Good" id="bel" type="radio">
+                                <label style="color: rgb(12, 12, 12);font-weight: bold;font-size: x-large;">Good</label>
+                                  
+                              </div>
+                              <div class="col-md-2">
+                                <input name="ServiceFeedback" value="Average" id="bel" type="radio">
+                                <label style="color: rgb(8, 8, 8);font-weight: bold;font-size: x-large;">Average</label>
+                                  
+                              </div>
+                              <div class="col-md-2">
+                                <input name="ServiceFeedback" value="Bad" id="bel" type="radio">
+                                  <label style="color: rgb(15, 15, 15);font-weight: bold;font-size: x-large;">Bad</label>
+                                  
+                              </div>
+                              <div class="col-md-2">
+                                  
+                                  <input type="text" id="ex" class="form-control" name="ServiceComment" placeholder="Comments">
+                              </div>
+      
+                          </div>
+    <br>
+      
+                          <div class="row" style="color:white;">
+                              
+                                          <div class="col-md-12" style="background-color:rgb(250, 245, 206) ;">
+                                            <h4><center>DISH</center></h4>
+                                          </div>
+                                          
+                                   
+      
+                          </div>
+                         
+                          <!-- <div> -->
+                              {% for i in pro %} 
+                               {% if forloop.counter %}
+                               
+                            
+                              
+                          <div class="row">
+                              
+                              <div class="col-md-2" style="margin-top: 5px;color: rgb(19, 1, 27);font-weight: bold;">
+                                         
+                                   
+                                    <input type="text" hidden="False" name="DishId{{forloop.counter}}" value={{i.DishID}}>
+                                     {{i.DishName}}
+                      
+       
+                              </div>
+                             
+                           
+                               
+                              <div class="col-md-2">
+                                  <label  style="color: rgb(247, 204, 191); font-weight: bold;font-size: large;"></label>
+            
+                                  <input hidden="False" name=dish{{forloop.counter}} value="Not selected" checked  type="radio">
+                                    <br>
+                                  <input  name=dish{{forloop.counter}}  value="Good" id="go" type="radio" >
+                                  <label style="color: rgb(15, 15, 15);font-weight: bold;font-size: x-large;">Good</label>
+            
+                              </div>
+                            
+                            
+                              <div class="col-md-2">
+                                  <label  style="color: rgb(247, 204, 191); font-weight: bold;font-size: large;"></label>
+                                <input hidden="False" name=dish{{forloop.counter}} value="Not selected" checked  type="radio">
+                               
+                                <br>
+                                  <input  name=dish{{forloop.counter}}  value="Bad"  id="bd"  type="radio">
+                                  <label style="color: rgb(15, 15, 15);font-weight: bold;font-size: x-large;">Bad</label>
+                                  
+      
+                              </div>
+                          
+                         
+                              <div class="col-md-4">
+                                 
+      
+                                  <input  type="text" style="margin-top: 15px;margin-bottom:15px;" id="ex" class="form-control" name=dishcomment{{forloop.counter}} placeholder="Comments">
+      
+                              </div>
+                         
+                         
+                          </div>
+                         
+                           <hr> 
+                        
+                         {% endif %}
+                          {% endfor %}
+      
+                          <br>
+                          <br>
+                          <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                  
+                                    <a href="#"><input  type="submit"   class="btn btn-success"  style="color:white"  id="btSubmit"  type="submit" ></a>
+                                  
+                                      <a  id="ex" style="margin-bottom:10px;border-radius:30px;" href="{% url 'IposApp:Cancelbtn' %}"class="btn btn-danger" value="Cancel"><h5 style="color:white;margin-top:10px;">Cancel</h5></a>
+                   
+                                    
+                                      
+                                  </div>
+
+                                
+          
+                                
+          
+                              </div>
+      
+                          </div>
+                      </div>
+      
+                          
+                    
+      
+                      </div>
+      
+      
+                  </div>
+                 
+                  
+               
+            
+      
+          </div>
+      
+      
+      
+            </div>
+
+            <style>
+            .con{
+               
+              
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+            }
+            .btnp{
+                padding: 10px 60px;
+                background: rgb(4, 54, 24);
+                border:0;
+                outline: none;
+                cursor: pointer;
+                font-size: 22px;
+                font-weight:500;
+                border-radius:30px;
+            }
+            .popup{
+                width:400px;
+                background:rgb(193, 248, 224);
+                border-radius:6px;
+                position: absolute;
+                top:0;
+                margin-top:10px;
+                left:50%;
+                transform:translate(-50%,-50%);scale:(0.1);
+                text-align: center;
+                padding: 0 30px 30px;
+                color:rgb(8, 6, 6);
+                visibility: hidden;
+                transition: transform 0.4s,top 0.4s;
+
+            }
+
+            .open-popup{
+                visibility: visible;
+                top:50%;
+                transform:translate(-50%,-50%)scale(1);
+            }
+            .popup img{
+                width:100px;
+                margin-top:-50px;
+                border-radius:50%;
+                box-shadow:0 2px 5px rgba(0,0,0,0.2);
+            }
+            .popup h2{
+                font-size:38px;
+                font-weight:500;
+                margin: 30px 0 10px;
+            }
+            .popup button{
+                width:100px;
+                margin-top:50px;
+                padding:10px 0;
+                background: #111110;
+                color:#fff;
+                border:0;
+                outline:none;
+                font-size:18px;
+                border-radius:4px;
+                cursor: pointer;
+                box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+            }
+            </style>
+ 
+            <!-- <div class="con">
+                
+              <div class="container-fluid">
+                <div class="popup" id="popup"> 
+                    <img src="{% static 'images/correct.png' %}">
+                    <h2>Thank You For Your Feedback !</h2>
+                    <p style="color:rgb(180, 71, 7);">Please click Ok to Save Your Feedback</p>
+                    <button type="buttonp" onclick="closePopup()">Ok</button>
+
+                </div>
+
+            </div>
+        </div> -->
+
+        
+
+            
+                
+
+
+                <script>
+                    $("#button").on("click", function(){
+    window.scrollTo(0,0);
+  
+});
+
+                </script>
+                <style>
+                    .mainDiv {
+    height: 500px
+}
+                </style>
+
+
+     
+      
+      
+                 
+      
+      
+      </form>
+      
+
+            </div>
+
+ 
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+
+                    <div class="col-lg-12">
+                        <div class="d-flex">
+                            <a href="" class="navbar-brand">
+                                <img src="{% static 'images/Arakkal_logo_png.jpg' %}" height="50px;">
+                                 <span class="brand-text"><h5 style="color:#da9100;font-family:Google Noto Fonts;font-weight:bold;">Arakkal  Palace <br>Restaurant</h5></span>
+                            </a>
+
+                            <ul class="social-icon ms-auto">
+                                <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                                <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                                <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+
+                                <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+    </body>
+</html>

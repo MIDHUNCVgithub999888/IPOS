@@ -1,0 +1,564 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title></title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+        
+        <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+        
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/templatemo-leadership-event.css' %}" rel="stylesheet">
+
+       
+        
+<!--
+
+TemplateMo 575 Leadership Event
+
+https://templatemo.com/tm-575-leadership-event
+
+-->
+ <style type="text/css">
+    /* :root{
+        color-1:#673ab7;
+    
+    
+    
+    } */
+    /* body{
+                margin:0;
+                padding:20px;
+                font-family:Times New Roman;
+                line-height: 1.5;
+        } */
+    /* *{
+               box-sizing:border-box;
+               margin: 0;
+               padding: 0;
+       } */
+       a{
+           text-decoration: none;
+       }
+       ul{
+           list-style: none;
+       }
+    /* .container{
+        max-width:1170px;
+        margin: auto;
+    
+    }
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .align-items-center{
+        align-items: center;
+    
+    }
+    .justify-content-between{
+        justify-content: space-between;
+    
+    
+    } */
+    /* .header{
+        background-color:var(--color-1) ;
+        padding: 12px 0;
+        position: relative;
+    
+    }
+    .header .logo,
+    .header .nav{
+        padding: 0 15px;
+    }
+    .header .logo a
+    {
+      font-size: 30px;
+      color:#ffffff;
+      text-transform: capitalize;
+    }
+    .header .nav ul li{
+        display:inline-block ;
+        margin-left: 40px;
+    }
+    .header .nav ul li a{
+        display: block;
+        font-size: 16px;
+        padding:10px 0 ;
+        color: rgba(255, 255, 255, 0.7);
+        text-transform: capitalize;
+        transition: all 0.5 ease;
+    
+    
+    }
+    .header .nav ul li a:hover,
+    .header .nav ul li a :active{
+        color: #ffffff;
+    }
+    .header #nav-check{
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .nav-toggler{
+        height: 34px;
+        width: 44px;
+        background-color: #ffffff;
+        border-radius: 4px;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        margin-right :15px;
+    
+    
+    }
+    .nav-toggler span {
+        display: block;
+        height:2px ;
+        width: 20px;
+        background-color: var(--color-1);
+        position: relative;
+    
+    
+    }
+    .nav-toggler span::before,
+    .nav-toggler span::after
+    {
+        content:'';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color:var(--color-1);
+        left: 0;
+    
+    
+    }
+    .nav-toggler span::before{
+        top: -6px;
+    }
+    .nav-toggler span::after{
+        top: 6px;
+    
+    } */
+    .table{
+                width:100%;
+                border-collapse:collapse;
+    }
+    .table td,.table th{
+                        padding:12px 15px;
+                        border:1px solid #ddd;
+                        text-align:center;
+                        font-size:16px;
+    }
+    .table th{
+           background-color:darkblue;
+           color:#ffffff;
+    }
+    
+    .table tbody tr:nth-child(even){
+        background-color:burlywood;
+        }
+    
+    @media(max-width:1024px){
+      .table thead{
+          display: none;
+    
+    
+    }
+    .nav-toggler{
+        display: flex;
+    }
+    .header .nav{
+        position: absolute;
+        left: 0;
+        top:100%;
+        width:100%;
+        background-color:darkred;
+        border-top: 1px solid rgba(223, 16, 16, 0.2);
+        opacity: 1;
+        visibility: hidden;
+    
+    }
+    .header .nav ul li{
+        display: block;
+        margin:0;
+    
+    }
+    .header #nav-check:checked ~ .nav{
+        opacity:1 ;
+        visibility: visible;
+    
+    }
+    .header #nav-check:focus ~ .nav-toggler
+    {
+        box-shadow: 0 0 15px #000000;
+    
+    }
+    
+    .header #nav-check:checked ~ .nav.toggler span{
+        background-color: transparent;
+    
+    }
+    .header #nav-check:checked ~ .nav-toggler span::before{
+       top: 0;
+       transform: rotate(45deg);
+    }
+    .header #nav-check:checked ~ .nav-toggler span::after{
+        top: 0;
+        transform: rotate(-45deg);
+    }
+    .table, .table tbody, .table tr, .table td{
+        display: block;
+        width: 100%;
+    
+    }
+    .table tr{
+        margin-bottom: 15px;
+    }
+    .table td{
+        text-align: right;
+        padding-left: 50%;
+        text-align: right;
+        position:relative ;
+    
+    
+    }
+    .table td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left:15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    
+    }
+    .session{
+        height:40px;
+    }
+
+nav ul li a{
+
+font-size: x-large;
+padding: 25px;
+font-family: 'Times New Roman', Times, serif;
+}
+    
+    
+    }
+    
+    
+        </style>
+    </head>
+    
+    <body>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+                    <i class="bi-bullseye brand-logo"></i>
+                    <span class="brand-text">Arakkal Palace</span>
+                </a>
+
+
+                <div class="collapse navbar-collapse" id="navbarNav" >
+                    <ul class="navbar-nav ms-auto" >
+                        <li class="nav-item">
+                            <a style="padding:12px; color: white;"  href="{% url 'IposApp:Home' %}">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;"  href="{% url 'IposApp:Display' %}">WaitingList</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:FinalReports' %}">Report</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:Tables' %}">Tables</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:CustomerPromotion' %}">CustomerPromotion</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:TableView' %}">TableMenu</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;color: white;" href="{% url 'IposApp:LogOut' %}">LogOut</a>
+                        </li>
+
+                    </ul>
+                <div>
+                        
+            </div>
+        </nav>
+
+        <main>
+
+        
+
+
+            <section class="highlight">
+                <div class="container-fluid">
+                  
+                    
+              
+                </div>
+            </section>
+            <div>
+                <br>
+                <br>
+                <a type="button" class="btn btn-outline-danger" style="width:80px;"  href="{% url 'IposApp:Tables'  %}">TABLES</a>
+                <a type="button" class="btn btn-outline-success" style="width:80px;"  href="{% url 'IposApp:Reg' %}">NEW</a>
+                <br>
+                <br>
+                <form method="post"   action="{% url 'IposApp:Display' %}" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                    
+                  
+                   <br>
+            
+                      <table class="table table-responsive" >
+                         <thead>
+                         
+                            <th>Id</th>
+                            <th>Customer Name</th>
+                            <th>Mobile Number</th>
+                            <th>Pax</th>
+                            <th>Selected Table</th>
+                            <th>Token Time</th>
+                            <!-- <th>TokenIn</th> -->
+                            <th>Status</th>
+                         <th>Action</th>
+                         
+                       </thead>
+                           <tbody>
+                          {% for i in result %}
+
+                         
+                 
+            
+                          <tr>
+                              
+                              <td  data-label="id">{{i.id}}</td>
+                              <td data-label="CustomerName" >{{i.CustomerName}}</td>
+                              <td data-label="MobileNumber">{{i.MobileNumber}}</td>
+                              <td data-label="NoOfPerson">{{i.NoOfPerson}}</td>
+                              <!-- <td data-label="SelectTable">{{i.SelectTable}}</td>   -->
+            
+                              
+                               <td data-label="SelectedTable">
+                              
+                              <select name="SelectTable" id="month" class="picker"  onclick="printChecked()" onchange="setMonth()"  style="border:1px solid black ;height:50px; width:150px;border-radius:5px; ">
+                                <option  value="">{{i.SelectTable}}</option>
+              
+                                {% for j in tb %}
+              
+                                      <option>{{j.TableNo}}</option>
+              
+                                {% endfor %}
+              
+                            </select>
+              
+              
+                          </td>
+                           
+                                  
+                               
+                             
+                           
+                       
+                              <td data-label="TokenTime">{{i.TokenTime}}</td>
+                              <!-- <td data-label="TokenIn"></td> -->
+                              
+                              <td data-label="Status">{{i.Status}}</td>
+                              <td data-label="Action">
+                                
+                    
+                                  
+            <a class="btn btn-outline-success" id="update" href="{% url 'IposApp:update' i.id %}">UPDATE</a>                                    
+            <a class="btn btn-outline-danger" href="{% url 'IposApp:Stat' i.id  %}">CANCEL</a>
+            <a className=""  id="sam"  href="{% url 'IposApp:report' i.id  %}"  target="_blank"><img style="height:60px;" src="{% static 'images/print.png' %}"></a>
+                              </td>
+                          </tr>
+       
+                          
+            <script type="text/javascript">
+            
+                var month;
+                function setMonth(){
+                  month = document.getElementById('month').value;
+                  
+                    alert(month)
+                
+                
+                $.ajax({type:'GET',
+                url:"{% url 'IposApp:update' i.id %}",
+                data:{'data':month},
+                success:function(response){
+                    console.log(response)
+                    
+                
+                }
+                });
+                
+                }
+                
+                $(function() {
+          $('.picker').on('change', function() {
+            var $sels = $('.picker option:selected[value=""]');
+            $("#Testing").attr("disabled", $sels.length > 0);
+          }).change();
+        });
+        
+        
+                
+                    
+                </script>
+
+
+            
+          
+            {% endfor %}
+
+                          </tbody>
+                      </table>
+                     
+                      
+                  
+            
+            </form>
+            
+            </div>
+
+
+          
+
+        </main>
+
+        <style>
+            .bg-footer {
+    background-color: #33383c;
+    padding: 50px 0 30px;
+}
+.footer-heading {
+    letter-spacing: 2px;
+}
+
+.footer-link a {
+    color: #acacac;
+    line-height: 40px;
+    font-size: 14px;
+    transition: all 0.5s;
+}
+
+.footer-link a:hover {
+    color: #1bbc9b;
+}
+
+.contact-info {
+    color: #acacac;
+    font-size: 14px;
+}
+
+.footer-social-icon {
+    font-size: 15px;
+    height: 34px;
+    width: 34px;
+    line-height: 34px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+}
+
+.facebook {
+    background-color: #4e71a8;
+    color: #ffffff;
+}
+
+.twitter {
+    background-color: #55acee;
+    color: #ffffff;
+}
+
+.google {
+    background-color: #d6492f;
+    color: #ffffff;
+}
+
+.apple {
+    background-color: #424041;
+    color: #ffffff;
+}
+
+.footer-alt {
+    color: #acacac;
+}
+
+.footer-heading {
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-heading:after {
+    content: '';
+    width: 25px;
+    border-bottom: 1px solid #FFF;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    border-bottom: 1px solid #1bbc9b;
+}
+
+        </style>
+
+        <footer class="section bg-footer" style="margin-top:125px;">
+            <div class="container">
+                
+                        <img src="/static/MenuItemsImage/arakal.png" height="150px;">
+
+                   
+                        <center><span class="brand-text"><h4 style="color:#da9100;font-family:Google Noto Fonts;">Arakkal Palace Restaurant</h4></span></center>
+                    
+                
+            </div>
+    
+            <div class="text-center mt-5">
+                <p class="footer-alt mb-0 f-14"></p>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+
+    </body>
+</html>

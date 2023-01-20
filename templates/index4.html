@@ -1,0 +1,271 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Leadership Event HTML5 Bootstrap v5 Template</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+        
+        <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+        
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/templatemo-leadership-event.css' %}" rel="stylesheet">
+        
+<style>
+
+@media (max-width:1024px){
+
+
+}
+
+</style>
+
+    </head>
+
+    
+    
+    <body>
+      
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+                    <!-- <i class="bi-bullseye brand-logo"> -->
+                        <!-- <img src="{% static 'images/Arakkal_logo_png.jpg' %}" height="50px;"> -->
+                    <!-- </i> -->
+                    <span class="brand-text"><h5 style="color:#da9100;font-family:Google Noto Fonts;">Arakkal Palace<br>Restaurant</h5></span>
+                </a>
+
+
+                <div class="collapse navbar-collapse" id="navbarNav" >
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a style="padding:12px;  font-size: x-large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Home' %}">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: x-large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Display' %}">WaitingList</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: x-large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:FinalReports' %}">Report</a>
+                        </li>
+
+                        <!-- <li class="nav-item" >
+                            <a style="padding:12px;font-size: x-large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:Tables' %}">Tables</a>
+                        </li> 
+
+                     <li class="nav-item">
+                            <a style="padding:12px;font-size: x-large; color: white; font-family:Google Noto Fonts;" href="{% url 'IposApp:TableView' %}">TableMenu</a>
+                        </li>  -->
+
+                      
+
+
+                        
+
+
+
+
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: x-large; color: white; font-family:Google Noto Fonts;" href="{% url 'IposApp:CustomerPromotion' %}">CustomerPromotion</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: x-large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:LogOut' %}">LogOut</a>
+                        </li>
+
+                        
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" style="font-size: x-large; color: white; font-family:Google Noto Fonts;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
+                              <ul class="dropdown-menu" style="font-family:Google Noto Fonts;">
+                                <li><a style="color:black;" href="{% url 'IposApp:Tables' %}">Tables</a></li>
+                                <hr>
+                                <li><a style="color:black;" href="{% url 'IposApp:TableView' %}">TableMenu</a></li>
+                                <hr>
+                                <li><a style="color:black;" href="{% url 'IposApp:Confirm_Orders' %}">Orders</a></li>
+                                <hr>
+                                <li><a style="color:black;" href="{% url 'IposApp:CreateSpecial' %}">New</a></li>
+                               
+                              </ul>
+                            </li>
+                          </ul>
+
+                        <li class="nav-item">
+                            <a style="padding:12px;font-size: x-large; color: white; font-family:Google Noto Fonts;"  href="{% url 'IposApp:ShowTable' %}">Kitchen</a>
+                        </li>
+
+                    </ul>
+                  
+                       
+                       
+                          <style>
+                            ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
+                        </style>
+                   
+                    
+                <div>
+                        
+            </div>
+        </nav>
+
+        <main>
+
+            
+
+            <section class="highlight">
+                <div class="container-fluid">
+                  
+              
+                   
+              
+                </div>
+            </section>
+<form action="{% url 'IposApp:log' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+            <div>
+                <img id="img1" class="img-fluid speakers-image"  src="{% static 'MenuItemsImage/Dashimage.jpg' %}">
+            </div>
+
+        </form>
+            
+
+
+                               
+
+                          
+
+
+                      
+            </section>
+
+
+          
+
+
+
+        </main>
+       
+      
+        <style>
+            .bg-footer {
+    background-color: #33383c;
+    padding: 50px 0 30px;
+}
+.footer-heading {
+    letter-spacing: 2px;
+}
+
+.footer-link a {
+    color: #acacac;
+    line-height: 40px;
+    font-size: 14px;
+    transition: all 0.5s;
+}
+
+.footer-link a:hover {
+    color: #1bbc9b;
+}
+
+.contact-info {
+    color: #acacac;
+    font-size: 14px;
+}
+
+.footer-social-icon {
+    font-size: 15px;
+    height: 34px;
+    width: 34px;
+    line-height: 34px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+}
+
+.facebook {
+    background-color: #4e71a8;
+    color: #ffffff;
+}
+
+.twitter {
+    background-color: #55acee;
+    color: #ffffff;
+}
+
+.google {
+    background-color: #d6492f;
+    color: #ffffff;
+}
+
+.apple {
+    background-color: #424041;
+    color: #ffffff;
+}
+
+.footer-alt {
+    color: #acacac;
+}
+
+.footer-heading {
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-heading:after {
+    content: '';
+    width: 25px;
+    border-bottom: 1px solid #FFF;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    border-bottom: 1px solid #1bbc9b;
+}
+
+        </style>
+
+        <footer class="section bg-footer" style="margin-top:10px;">
+            <div class="container">
+                
+                        <img src="/static/MenuItemsImage/arakal.png" height="150px;">
+
+                   
+                        <center><span class="brand-text"><h4 style="color:#da9100;font-family:Google Noto Fonts;">Arakkal Palace Restaurant</h4></span></center>
+                    
+                
+            </div>
+    
+            <div class="text-center mt-5">
+                <p class="footer-alt mb-0 f-14"></p>
+            </div>
+        </footer>
+
+      
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+
+
+    </body>
+</html>
